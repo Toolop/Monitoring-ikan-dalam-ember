@@ -49,7 +49,8 @@ void sendSuhuAir(){
 }
 void Turbidity(){
   int sensorValue =analogRead(sensorPin);
-  int turbidity = map(sensorValue, 0,1024, 0, 100);
+  int tempTurbidity = map(sensorValue, 0,1024, 0, 100);
+  int turbidity = 100 - tempTurbidity;
   Serial.print(turbidity);
   Blynk.virtualWrite(V4, turbidity);
 }
